@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">ValorantApp</string>
+    <!-- Menu -->
+    <string name="menu_agents">Agents</string>
+    <string name="menu_maps">Maps</string>
+    <string name="menu_weapons">Weapons</string>
+    <string name="menu_competitive">Competitive</string>
+
+    <!-- Agent Detail -->
+    <string name="agent_detail_description_title">Description</string>
+    <string name="agent_detail_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</string>
+    <string name="agent_detail_abilities_title">Abilities</string>
+</resources>

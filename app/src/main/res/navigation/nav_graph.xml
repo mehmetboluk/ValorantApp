@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/agentsFragment">
+    <fragment
+        android:id="@+id/agentsFragment"
+        android:name="com.example.valorantapp.presentation.screen.agents.AgentsFragment"
+        android:label="fragment_agents"
+        tools:layout="@layout/fragment_agents" >
+        <action
+            android:id="@+id/action_agentsFragment_to_agentDetailFragment"
+            app:destination="@id/agentDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/agentDetailFragment"
+        android:name="com.example.valorantapp.presentation.screen.agentDetail.AgentDetailFragment"
+        android:label="fragment_agent_detail"
+        tools:layout="@layout/fragment_agent_detail" >
+        <argument
+            android:name="agent"
+            app:argType="com.example.valorantapp.domain.model.Agent"
+            app:nullable="true" />
+    </fragment>
+</navigation>

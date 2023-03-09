@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="@string/menu_agents"
+        android:id="@+id/agents"
+        android:icon="@drawable/ic_characters" />
+    <item android:title="@string/menu_maps"
+        android:id="@+id/maps"
+        android:icon="@drawable/ic_maps"/>
+    <item android:title="@string/menu_weapons"
+        android:id="@+id/weapons"
+        android:icon="@drawable/ic_gun"/>
+    <item android:title="@string/menu_competitive"
+        android:id="@+id/competitive"
+        android:icon="@drawable/ic_rank"/>
+
+</menu>
