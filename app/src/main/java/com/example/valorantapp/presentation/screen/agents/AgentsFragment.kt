@@ -40,7 +40,6 @@ class AgentsFragment : BaseFragment<FragmentAgentsBinding, AgentsViewModel>(
         }
     }
 
-    @SuppressLint("UnsafeRepeatOnLifecycleDetector")
     private fun observer(){
         lifecycleScope.launch {
             lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
