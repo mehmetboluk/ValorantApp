@@ -25,13 +25,13 @@ class AgentsViewModel @Inject constructor(
         getAgents()
     }
 
-    fun getAgents(){
+    private fun getAgents(){
         viewModelScope.launch(Dispatchers.IO) {
             getAgentsUseCase().onEach { result ->
                 when(result){
                     is Resource.Loading -> {
                         _agents.value = agents.value.copy(
-                            isLoading = false,
+                            isLoading = true,
                             items = null
                         )
                     }
