@@ -9,9 +9,11 @@
         <entry key="app/src/main/res/layout/fragment_agent_detail.xml" value="0.21115674195756332" />
         <entry key="app/src/main/res/layout/fragment_agents.xml" value="0.2646048109965636" />
         <entry key="app/src/main/res/layout/fragment_maps.xml" value="0.26992753623188404" />
+        <entry key="app/src/main/res/layout/fragment_weapons.xml" value="0.26992753623188404" />
         <entry key="app/src/main/res/layout/ri_ability.xml" value="0.26992753623188404" />
         <entry key="app/src/main/res/layout/ri_agents.xml" value="0.26992753623188404" />
         <entry key="app/src/main/res/layout/ri_maps.xml" value="0.26992753623188404" />
+        <entry key="app/src/main/res/layout/ri_weapons.xml" value="0.26992753623188404" />
         <entry key="app/src/main/res/menu/bottom_nav.xml" value="0.2921875" />
       </map>
     </option>

@@ -26,7 +26,6 @@ class AgentsFragment : BaseFragment<FragmentAgentsBinding, AgentsViewModel>(
     override fun onViewCreateInvoke() {
         super.onViewCreateInvoke()
 
-        agentsAdapter = AgentsAdapter(::adapterClick)
         setRecycler()
         observer()
 
@@ -35,6 +34,7 @@ class AgentsFragment : BaseFragment<FragmentAgentsBinding, AgentsViewModel>(
     private fun setRecycler() {
 
         binding?.rvAgents?.apply {
+            agentsAdapter = AgentsAdapter(::adapterClick)
             adapter = agentsAdapter
             layoutManager = GridLayoutManager(context,3)
         }
