@@ -28,18 +28,20 @@
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/ivMapImage"
                 android:layout_width="0dp"
-                android:layout_height="200dp"
+                android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvMapName"
                 tools:src="@color/black"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
                 loadImage="@{data.displayIcon}"/>
 
             <TextView
                 android:id="@+id/tvMapName"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:elevation="1dp"
