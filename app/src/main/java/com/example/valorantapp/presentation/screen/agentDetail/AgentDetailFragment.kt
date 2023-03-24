@@ -30,15 +30,34 @@ class AgentDetailFragment : BaseFragment<FragmentAgentDetailBinding,AgentDetailV
 
         setRecycler()
         init()
+        observer()
 
+    }
+
+    private fun observer() {
+        lifecycleScope.launch {
+            lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED){
+                viewModel.getAgent.collectLatest {
+                    when{
+                        it.isLoading -> {
+                            binding?.pbProgress?.isVisible = true
+                        }
+                        it.data != null -> {
+                            binding?.pbProgress?.isVisible = false
+                            binding?.data = it.data
+                            binding?.ability = it.data.abilities[0]
+                            agentAbilityAdapter.abilityList = it.data.abilities
+                        }
+                    }
+                }
+            }
+        }
     }
 
     private fun init(){
         agent = navArgs.agent
         agent?.let {
-            binding?.data = it
-            binding?.ability = it.abilities[0]
-            agentAbilityAdapter.abilityList = it.abilities
+            viewModel.getAgentData(it.uuid)
         }
     }
 
