@@ -59,6 +59,7 @@ class MapsFragment : BaseFragment<FragmentMapsBinding,MapsViewModel>(
     }
 
     private fun recyclerClickListener(map: Map){
-
+        val action = MapsFragmentDirections.actionMapsFragmentToMapDetailFragment(map.uuid)
+        navController?.navigate(action)
     }
 }
