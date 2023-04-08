@@ -56,7 +56,8 @@ class WeaponsFragment : BaseFragment<FragmentWeaponsBinding, WeaponViewModel>(
         }
     }
 
-    private fun weaponRecyclerClick(weapon: Weapon){
-
+    private fun weaponRecyclerClick(weapon: Weapon?){
+        val action = WeaponsFragmentDirections.actionWeaponsFragmentToWeaponDetailFragment(weapon?.uuid ?: "")
+        navController?.navigate(action)
     }
 }
