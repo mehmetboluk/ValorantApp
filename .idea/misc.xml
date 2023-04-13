@@ -8,12 +8,14 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.26992753623188404" />
         <entry key="app/src/main/res/layout/fragment_agent_detail.xml" value="0.21115674195756332" />
         <entry key="app/src/main/res/layout/fragment_agents.xml" value="0.2646048109965636" />
+        <entry key="app/src/main/res/layout/fragment_competitive_tiers.xml" value="0.26992753623188404" />
         <entry key="app/src/main/res/layout/fragment_map_detail.xml" value="0.26992753623188404" />
         <entry key="app/src/main/res/layout/fragment_maps.xml" value="0.26992753623188404" />
         <entry key="app/src/main/res/layout/fragment_weapon_detail.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_weapons.xml" value="0.26992753623188404" />
         <entry key="app/src/main/res/layout/ri_ability.xml" value="0.26992753623188404" />
         <entry key="app/src/main/res/layout/ri_agents.xml" value="0.26992753623188404" />
+        <entry key="app/src/main/res/layout/ri_competitive_tiers.xml" value="0.26992753623188404" />
         <entry key="app/src/main/res/layout/ri_maps.xml" value="0.26992753623188404" />
         <entry key="app/src/main/res/layout/ri_skins.xml" value="0.26992753623188404" />
         <entry key="app/src/main/res/layout/ri_weapons.xml" value="0.26992753623188404" />

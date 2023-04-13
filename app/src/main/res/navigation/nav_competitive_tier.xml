@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/nav_competitive_tier">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_competitive_tier"
+    app:startDestination="@id/competitiveTiersFragment">
 
+    <fragment
+        android:id="@+id/competitiveTiersFragment"
+        android:name="com.example.valorantapp.presentation.screen.competitiveTiers.CompetitiveTiersFragment"
+        android:label="fragment_competitive_tiers"
+        tools:layout="@layout/fragment_competitive_tiers" />
 </navigation>
