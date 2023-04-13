@@ -1,11 +1,10 @@
-package com.example.valorantapp.presentation.screen.maps
+package com.example.valorantapp.presentation.screen.mapDetail
 
 import androidx.lifecycle.viewModelScope
 import com.example.valorantapp.core.base.BaseViewModel
 import com.example.valorantapp.core.util.Resource
-import com.example.valorantapp.domain.usecase.maps.GetMapsUseCase
+import com.example.valorantapp.domain.usecase.maps.GetMapDetailUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.launchIn
@@ -14,36 +13,32 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class MapsViewModel @Inject constructor(
-    private val getMapsUseCase: GetMapsUseCase
+class MapDetailViewModel @Inject constructor(
+    private val getMapDetailUseCase: GetMapDetailUseCase
 ): BaseViewModel() {
-    private val _maps : MutableStateFlow<MapsUIState> =
-        MutableStateFlow(MapsUIState(isLoading = true))
-    val maps : StateFlow<MapsUIState> get() = _maps
+    private val _getMapDetail : MutableStateFlow<MapDetailUIState> =
+        MutableStateFlow(MapDetailUIState(isLoading = true))
+    val getMapDetail: StateFlow<MapDetailUIState> get() = _getMapDetail
 
-    init {
-        getMaps()
-    }
-
-    private fun getMaps() = viewModelScope.launch(Dispatchers.IO) {
-        getMapsUseCase().onEach { result ->
+    fun getMapData(mapUUID: String) = viewModelScope.launch {
+        getMapDetailUseCase(mapUUID).onEach { result ->
             when(result){
                 is Resource.Loading -> {
-                    _maps.value = maps.value.copy(
+                    _getMapDetail.value = getMapDetail.value.copy(
                         isLoading = true,
-                        maps = null
+                        null
                     )
                 }
                 is Resource.Error -> {
-                    _maps.value = maps.value.copy(
+                    _getMapDetail.value = getMapDetail.value.copy(
                         isLoading = false,
-                        maps = null
+                        null
                     )
                 }
                 is Resource.Success -> {
-                    _maps.value = maps.value.copy(
+                    _getMapDetail.value = getMapDetail.value.copy(
                         isLoading = false,
-                        maps = result.data
+                        result.data
                     )
                 }
             }

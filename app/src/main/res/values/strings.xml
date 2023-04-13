@@ -10,6 +10,12 @@
     <string name="agent_detail_description_title">Description</string>
     <string name="agent_detail_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</string>
     <string name="agent_detail_abilities_title">Abilities</string>
+    <!-- Weapon Detail -->
+    <string name="weapon_range">Weapon Range</string>
+    <string name="weapon_head" translatable="false"><![CDATA[Head - %s]]></string>
+    <string name="weapon_body" translatable="false"><![CDATA[Body - %s]]></string>
+    <string name="weapon_leg" translatable="false"><![CDATA[Leg - %s]]></string>
+    <string name="weapon_skins" translatable="false">Skins</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

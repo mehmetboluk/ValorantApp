@@ -10,14 +10,17 @@
 
         <variable
             name="data"
-            type="com.example.valorantapp.domain.model.Map" />
+            type="com.example.valorantapp.domain.model.Weapon" />
 
     </data>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
         app:cardCornerRadius="10dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -26,19 +29,19 @@
             android:layout_height="wrap_content">
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/ivMapImage"
+                android:id="@+id/ivWeaponImage"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvMapName"
+                app:layout_constraintTop_toBottomOf="@id/tvWeaponName"
                 tools:src="@color/black"
                 android:adjustViewBounds="true"
                 android:scaleType="fitXY"
                 loadImage="@{data.displayIcon}"/>
 
             <TextView
-                android:id="@+id/tvMapName"
+                android:id="@+id/tvWeaponName"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toTopOf="parent"
@@ -48,7 +51,7 @@
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textStyle="bold"
-                tools:text="Map Name"
+                tools:text="Weapon Name"
                 android:text="@{data.displayName}"
                 android:layout_marginBottom="20dp" />
 

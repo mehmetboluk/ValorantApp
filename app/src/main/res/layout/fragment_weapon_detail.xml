@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".presentation.screen.weaponDetail.WeaponDetailFragment">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.example.valorantapp.domain.model.Weapon" />
+
+        <variable
+            name="skin"
+            type="com.example.valorantapp.data.model.weapons.Skin" />
+
+        <import type="android.text.Html"/>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="30dp"
+            android:clipToPadding="false">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ProgressBar
+                    android:id="@+id/pbProgress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:visibility="gone"
+                    tools:visibility="visible"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivWeaponImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="400dp"
+                    android:adjustViewBounds="true"
+                    app:layout_constraintTop_toTopOf="parent"
+                    loadImage="@{data.displayIcon}"
+                    android:background="@android:color/holo_red_dark"/>
+
+                <TextView
+                    android:id="@+id/tvWeaponName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/ivWeaponImage"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:background="@android:color/holo_red_dark"
+                    android:text="@{data.displayName}"
+                    tools:text="Weapon"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textAlignment="center"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/tvWeaponType"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/tvWeaponName"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="20dp"
+                    android:background="@drawable/bg_agent_datail"
+                    android:text="@{data.category}"
+                    tools:text="Weapon"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textAlignment="center"
+                    android:textStyle="normal"/>
+
+                <TextView
+                    android:id="@+id/tvRangeTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    app:layout_constraintTop_toBottomOf="@id/tvWeaponType"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:text="Weapon Range"
+                    android:text="@string/weapon_range"
+                    android:textColor="@android:color/holo_red_dark"
+                    android:textSize="20sp"
+                    android:textAlignment="center"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/tvHead"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintTop_toBottomOf="@id/tvRangeTitle"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:text="Head - 160.0"
+                    android:text="@{Html.fromHtml(String.format(@string/weapon_head,data.weaponStats.damageRanges[0].headDamage))}"
+                    android:textColor="@android:color/holo_red_dark"
+                    android:textSize="16sp"
+                    android:textAlignment="center"
+                    android:textStyle="normal"/>
+
+                <com.google.android.material.progressindicator.LinearProgressIndicator
+                    android:id="@+id/pbHead"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="40dp"
+                    android:layout_marginTop="10dp"
+                    app:trackColor="@color/white"
+                    app:trackThickness="10dp"
+                    app:trackCornerRadius="10dp"
+                    app:indicatorColor="@android:color/holo_red_dark"
+                    app:layout_constraintTop_toBottomOf="@id/tvHead"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:max="100"
+                    tools:progress="45"
+                    android:progress="@{data.weaponStats.damageRanges.get(0).headDamage.intValue()}"/>
+
+                <TextView
+                    android:id="@+id/tvBody"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintTop_toBottomOf="@id/pbHead"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:text="Head - 160.0"
+                    android:text="@{Html.fromHtml(String.format(@string/weapon_body,data.weaponStats.damageRanges[0].bodyDamage))}"
+                    android:textColor="@android:color/holo_red_dark"
+                    android:textSize="16sp"
+                    android:textAlignment="center"
+                    android:textStyle="normal"/>
+
+                <com.google.android.material.progressindicator.LinearProgressIndicator
+                    android:id="@+id/pbBody"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="40dp"
+                    android:layout_marginTop="10dp"
+                    app:trackColor="@color/white"
+                    app:trackThickness="10dp"
+                    app:trackCornerRadius="10dp"
+                    app:indicatorColor="@android:color/holo_red_dark"
+                    app:layout_constraintTop_toBottomOf="@id/tvBody"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:max="100"
+                    tools:progress="45"
+                    android:progress="@{data.weaponStats.damageRanges[0].bodyDamage.intValue()}"/>
+
+                <TextView
+                    android:id="@+id/tvLeg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintTop_toBottomOf="@id/pbBody"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:text="Head - 160.0"
+                    android:text="@{Html.fromHtml(String.format(@string/weapon_leg,data.weaponStats.damageRanges[0].legDamage))}"
+                    android:textColor="@android:color/holo_red_dark"
+                    android:textSize="16sp"
+                    android:textAlignment="center"
+                    android:textStyle="normal"/>
+
+                <com.google.android.material.progressindicator.LinearProgressIndicator
+                    android:id="@+id/pbLeg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="40dp"
+                    android:layout_marginTop="10dp"
+                    app:trackColor="@color/white"
+                    app:trackThickness="10dp"
+                    app:trackCornerRadius="10dp"
+                    app:indicatorColor="@android:color/holo_red_dark"
+                    app:layout_constraintTop_toBottomOf="@id/tvLeg"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:max="100"
+                    tools:progress="45"
+                    android:progress="@{data.weaponStats.damageRanges[0].legDamage.intValue()}"/>
+
+                <TextView
+                    android:id="@+id/tvSkins"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/pbLeg"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="30dp"
+                    android:text="@string/weapon_skins"
+                    android:textColor="@android:color/holo_red_dark"
+                    android:textSize="20sp"
+                    android:textAlignment="center"
+                    android:textStyle="bold"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvSkins"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:foregroundGravity="center_horizontal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvSkins"
+                    android:layout_marginTop="20dp"/>
+
+                <ImageView
+                    android:id="@+id/ivWeaponSkin"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:scaleType="fitXY"
+                    android:adjustViewBounds="true"
+                    loadImage="@{skin.displayIcon}"
+                    android:layout_marginHorizontal="30dp"
+                    app:layout_constraintTop_toBottomOf="@id/rvSkins"
+                    android:layout_marginTop="30dp"
+                    android:paddingBottom="10dp"
+                    android:orientation="vertical"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

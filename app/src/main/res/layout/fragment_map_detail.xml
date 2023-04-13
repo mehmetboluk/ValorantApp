@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".presentation.screen.mapDetail.MapDetailFragment">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="data"
+            type="com.example.valorantapp.domain.model.Map" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivMapIcon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="100dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            loadImage="@{data.displayIcon}"/>
+
+        <TextView
+            android:id="@+id/tvMapName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/ivMapIcon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="30dp"
+            tools:text="Map Name"
+            android:textAlignment="center"
+            android:text="@{data.displayName}"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="22sp"/>
+
+        <TextView
+            android:id="@+id/tvMapCoordinate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tvMapName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="30dp"
+            tools:text="Map Coordinate"
+            android:textAlignment="center"
+            android:text="@{data.coordinates}"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="20sp"/>
+
+        <ProgressBar
+            android:id="@+id/pbProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:visibility="gone"
+            tools:visibility="visible"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
